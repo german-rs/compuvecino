@@ -11,6 +11,8 @@ CompuVecino ofrece soporte técnico y reparación de computadores a domicilio en
 
 ## Stack técnico
 
+
+
 ### Actual
 Verificado en `package.json` y `astro.config.mjs`:
 - **Framework**: [Astro](https://astro.build) (`^7.3.8`)
