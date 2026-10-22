@@ -1,0 +1,29 @@
+/* Fuente de verdad de los valores de diseño. Ver docs/WEB_STYLE_GUIDE.md §2.3 */
+:root {
+  --cv-bg: #06110c;
+  --cv-surface: #0a1b13;
+  --cv-surface-2: #0e2118;
+  --cv-text: #eaf5ee;
+  --cv-text-muted: #a3baab;
+  --cv-accent: #4ade80;
+  --cv-on-accent: #04210f;
+  --cv-warn: #ffc857;
+  --cv-danger: #ff6b6b;
+  --cv-border: rgb(255 255 255 / 0.12);
+  --cv-border-strong: rgb(255 255 255 / 0.25);
+  --cv-glow: rgb(74 222 128 / 0.35);
+
+  --cv-font-display: "Space Grotesk", system-ui, sans-serif;
+  --cv-font-body: "Inter", system-ui, sans-serif;
+
+  --cv-radius-sm: 10px;
+  --cv-radius-md: 18px;
+  --cv-radius-lg: 22px;
+  --cv-radius-xl: 32px;
+  --cv-radius-pill: 999px;
+
+  --cv-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --cv-dur-fast: 250ms;
+  --cv-dur-base: 450ms;
+  --cv-dur-slow: 800ms;
+}

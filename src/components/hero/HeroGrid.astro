@@ -1,0 +1,60 @@
+---
+// Capa 1 (parte CSS): resplandor + piso de grilla en perspectiva.
+// Decorativo. La animación solo corre sin prefers-reduced-motion (ver global.css).
+---
+
+<div class="cv-hero-glow" aria-hidden="true"></div>
+<div class="cv-grid-floor" aria-hidden="true">
+  <div class="cv-grid-persp">
+    <div class="cv-grid-plane">
+      <div class="cv-grid-lines cv-grid-scroll"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cv-hero-glow {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(
+      60% 50% at 75% 35%,
+      color-mix(in srgb, var(--cv-accent) 18%, transparent),
+      transparent 70%
+    );
+  }
+  .cv-grid-floor {
+    position: absolute;
+    inset: auto 0 0 0;
+    z-index: -1;
+    height: 55%;
+    overflow: hidden;
+    pointer-events: none;
+    mask-image: linear-gradient(to top, #000 10%, transparent 95%);
+  }
+  .cv-grid-persp {
+    position: absolute;
+    inset: 0;
+    perspective: 420px;
+    perspective-origin: 50% 0;
+  }
+  .cv-grid-plane {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    right: -100%;
+    height: 400%;
+    overflow: hidden;
+    transform-origin: 50% 0;
+    transform: rotateX(72deg);
+  }
+  .cv-grid-lines {
+    position: absolute;
+    inset: -64px 0 0 0;
+    background-size: 64px 64px;
+    background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--cv-accent) 40%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--cv-accent) 40%, transparent) 1px, transparent 1px);
+  }
+</style>

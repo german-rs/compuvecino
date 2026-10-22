@@ -1,0 +1,39 @@
+---
+// Variantes y tamaños: docs/WEB_STYLE_GUIDE.md §8.1
+interface Props {
+  variant?: "primary" | "outline" | "outline-accent";
+  size?: "md" | "lg";
+  href?: string;
+  class?: string;
+}
+
+const { variant = "primary", size = "md", href, class: className } = Astro.props;
+
+const base =
+  "inline-flex min-h-11 items-center justify-center rounded-cv-pill text-base font-semibold transition-[transform,box-shadow] duration-(--cv-dur-fast) ease-(--cv-ease) hover:shadow-[0_14px_30px_-10px_var(--cv-glow)] motion-safe:hover:-translate-y-[3px]";
+
+const variants = {
+  primary: "bg-cv-accent text-cv-on-accent",
+  outline: "border border-cv-border-strong text-cv-text",
+  "outline-accent": "border border-cv-accent text-cv-accent",
+};
+
+const sizes = {
+  lg: "px-7 py-4",
+  md: "px-6 py-[13px]",
+};
+
+const classes = [base, variants[variant], sizes[size], className];
+---
+
+{
+  href ? (
+    <a href={href} class:list={classes}>
+      <slot />
+    </a>
+  ) : (
+    <button type="button" class:list={classes}>
+      <slot />
+    </button>
+  )
+}

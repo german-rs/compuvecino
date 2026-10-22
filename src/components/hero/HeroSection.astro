@@ -1,0 +1,47 @@
+---
+import Button from "../ui/Button.astro";
+import HeroGrid from "./HeroGrid.astro";
+import HeroFallback from "./HeroFallback.astro";
+import { site } from "../../data/site";
+
+const { hero } = site;
+const [before, after] = hero.title.split(hero.highlightWord);
+---
+
+<section class="relative isolate overflow-hidden" aria-labelledby="hero-title">
+  <HeroGrid />
+
+  <div class="mx-auto grid max-w-[1280px] items-center gap-12 px-5 pt-32 pb-16 sm:px-12 lg:grid-cols-2 lg:pt-40 lg:pb-24">
+    <!-- Capa 3: texto. Se pinta sin esperar al 3D. -->
+    <div class="flex flex-col items-start gap-6">
+      <p class="rounded-cv-pill border border-cv-border px-4 py-1.5 text-sm text-cv-muted">
+        {hero.eyebrow}
+      </p>
+
+      <h1
+        id="hero-title"
+        class="text-[clamp(40px,5.2vw,76px)] leading-[1.02] font-bold tracking-[-0.02em]"
+      >
+        {before}<span class="text-cv-accent">{hero.highlightWord}</span>{after}
+      </h1>
+
+      <p class="max-w-[60ch] text-[18px] leading-relaxed text-cv-muted">
+        {hero.description}
+      </p>
+
+      <div class="flex flex-wrap gap-3">
+        <Button size="lg" href={hero.ctas.primary.href}>{hero.ctas.primary.label}</Button>
+        <Button size="lg" variant="outline" href={hero.ctas.secondary.href}>
+          {hero.ctas.secondary.label}
+        </Button>
+      </div>
+
+      <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-cv-muted">
+        {hero.highlights.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+
+    <!-- Capa 2: escena. Por ahora estática; Hero3D la reemplaza en escritorio. -->
+    <HeroFallback />
+  </div>
+</section>

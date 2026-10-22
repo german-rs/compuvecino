@@ -1,0 +1,82 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+/* Tokens -> clases de Tailwind v4 (bg-cv-bg, text-cv-muted, rounded-cv-lg...) */
+@theme inline {
+  --color-cv-bg: var(--cv-bg);
+  --color-cv-surface: var(--cv-surface);
+  --color-cv-surface-2: var(--cv-surface-2);
+  --color-cv-text: var(--cv-text);
+  --color-cv-muted: var(--cv-text-muted);
+  --color-cv-accent: var(--cv-accent);
+  --color-cv-on-accent: var(--cv-on-accent);
+  --color-cv-warn: var(--cv-warn);
+  --color-cv-danger: var(--cv-danger);
+  --color-cv-border: var(--cv-border);
+  --color-cv-border-strong: var(--cv-border-strong);
+
+  --font-display: var(--cv-font-display);
+  --font-body: var(--cv-font-body);
+
+  --radius-cv-sm: var(--cv-radius-sm);
+  --radius-cv-md: var(--cv-radius-md);
+  --radius-cv-lg: var(--cv-radius-lg);
+  --radius-cv-xl: var(--cv-radius-xl);
+  --radius-cv-pill: var(--cv-radius-pill);
+}
+
+@layer base {
+  html {
+    background: var(--cv-bg);
+    color: var(--cv-text);
+    font-family: var(--cv-font-body);
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--cv-font-display);
+  }
+  :focus-visible {
+    outline: 2px solid var(--cv-accent);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* Animaciones de ambiente: solo se definen si la persona no pidió menos movimiento */
+@keyframes cv-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes cv-grid-scroll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(64px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cv-float {
+    animation: cv-float 6s ease-in-out infinite;
+  }
+  .cv-grid-scroll {
+    animation: cv-grid-scroll 3s linear infinite;
+  }
+}

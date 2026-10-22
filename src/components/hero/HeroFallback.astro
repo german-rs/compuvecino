@@ -1,0 +1,70 @@
+---
+// Escena estática del hero: laptop con "Diagnóstico del equipo" + tarjetas flotantes.
+// Es la versión que se ve en móvil y con movimiento reducido; más adelante Hero3D
+// la reemplaza en escritorio. Decorativa: aria-hidden (ver WEB_STYLE_GUIDE §9).
+import { site } from "../../data/site";
+
+const { scene } = site.hero;
+const R = 34;
+const CIRC = 2 * Math.PI * R;
+const dash = (scene.score / 100) * CIRC;
+---
+
+<div class="relative mx-auto w-full max-w-[560px]" aria-hidden="true">
+  <svg viewBox="0 0 560 400" class="h-auto w-full" role="presentation" focusable="false">
+    <ellipse cx="280" cy="320" rx="255" ry="58" class="fill-none stroke-cv-accent/40" stroke-dasharray="4 9"></ellipse>
+
+    <!-- Base del laptop -->
+    <path d="M96 252 H464 L496 290 Q498 304 482 304 H78 Q62 304 64 290 Z" class="fill-cv-surface-2 stroke-cv-accent/30"></path>
+    <rect x="236" y="262" width="88" height="22" rx="6" class="fill-none stroke-cv-accent/30"></rect>
+
+    <!-- Pantalla -->
+    <rect x="120" y="52" width="320" height="200" rx="14" class="fill-cv-bg stroke-cv-accent/55" stroke-width="2"></rect>
+    <circle cx="140" cy="72" r="4" class="fill-cv-danger"></circle>
+    <circle cx="154" cy="72" r="4" class="fill-cv-warn"></circle>
+    <circle cx="168" cy="72" r="4" class="fill-cv-accent"></circle>
+    <text x="140" y="104" class="fill-cv-text" font-size="13" font-weight="500">{scene.screenTitle}</text>
+
+    <!-- Anillo de puntaje -->
+    <g transform="translate(184 172)">
+      <circle r={R} class="fill-none stroke-white/10" stroke-width="8"></circle>
+      <circle
+        r={R}
+        class="fill-none stroke-cv-accent"
+        stroke-width="8"
+        stroke-linecap="round"
+        stroke-dasharray={`${dash} ${CIRC}`}
+        transform="rotate(-90)"></circle>
+      <text text-anchor="middle" y="5" class="fill-cv-text" font-size="16" font-weight="700">{scene.score}%</text>
+      <text text-anchor="middle" y="21" class="fill-cv-muted" font-size="8">{scene.scoreLabel}</text>
+    </g>
+
+    <!-- Barras -->
+    {
+      scene.bars.map((bar, i) => (
+        <g transform={`translate(256 ${128 + i * 36})`}>
+          <text y="0" class="fill-cv-muted" font-size="11">{bar.label}</text>
+          <rect y="8" width="150" height="8" rx="4" class="fill-white/10" />
+          <rect
+            y="8"
+            width={150 * bar.value}
+            height="8"
+            rx="4"
+            class={bar.tone === "warn" ? "fill-cv-warn" : "fill-cv-accent"}
+          />
+        </g>
+      ))
+    }
+  </svg>
+
+  <!-- Tarjetas flotantes -->
+  <span class="cv-float absolute top-[10%] right-[0%] rotate-[-4deg] rounded-cv-md bg-cv-accent px-4 py-2 text-sm font-semibold text-cv-on-accent shadow-[0_14px_30px_-10px_var(--cv-glow)]">
+    {scene.cards[0]}
+  </span>
+  <span class="cv-float absolute top-[34%] left-[0%] rotate-[8deg] rounded-cv-md bg-cv-text px-4 py-2 text-sm font-semibold text-cv-bg [animation-delay:-2s]">
+    {scene.cards[1]}
+  </span>
+  <span class="cv-float absolute right-[2%] bottom-[8%] rotate-[5deg] rounded-cv-md border border-cv-border-strong bg-cv-surface-2 px-4 py-2 text-sm font-semibold text-cv-text [animation-delay:-4s]">
+    {scene.cards[2]}
+  </span>
+</div>
