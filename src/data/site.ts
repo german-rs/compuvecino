@@ -230,4 +230,35 @@ export const site = {
       href: "https://wa.me/56982960453?text=Hola%20CompuVecino,%20quisiera%20cotizar%20soporte%20para%20mi%20pyme",
     },
   },
+  inclusion: {
+    eyebrow: "Inclusión y accesibilidad",
+    title: "Atención en Lengua de Señas Chilena",
+    subtitle:
+      "Soporte técnico directo y cercano para personas sordas, sin depender de intérpretes ni intermediarios para resolver los problemas de tu computador.",
+    pillars: [
+      {
+        title: "Videos y videollamadas por WhatsApp",
+        text: "Puedes enviarnos un mensaje de video en LSCh explicando qué le pasa a tu equipo, o agendar una videollamada para revisar juntos la falla.",
+      },
+      {
+        title: "Diagnóstico y presupuesto en señas",
+        text: "Te explicamos con claridad qué pieza falla, qué solución proponemos y el costo exacto antes de que decidas realizar el trabajo.",
+      },
+      {
+        title: "A domicilio, taller o remoto",
+        text: "Atención presencial en comunas de Santiago o soporte a distancia con explicaciones visuales paso a paso.",
+      },
+    ],
+    ctaLabel: "Pedir atención en LSCh",
+    href: "https://wa.me/56982960453?text=Hola%20CompuVecino,%20quisiera%20pedir%20atenci%C3%B3n%20en%20Lengua%20de%20Se%C3%B1as%20Chilena%20(LSCh)",
+    card: {
+      tag: "Atención directa",
+      heading: "¿Cómo iniciar tu atención?",
+      steps: [
+        "Graba un video corto mostrando el computador o explicando en LSCh.",
+        "Envíalo directo a nuestro WhatsApp.",
+        "Te responderemos en señas con el diagnóstico y los pasos a seguir.",
+      ],
+    },
+  },
 } as const;
