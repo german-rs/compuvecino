@@ -1,0 +1,39 @@
+---
+// Sección de Servicios (#servicios). Ver docs/WEB_STYLE_GUIDE.md §10 y docs/ARCHITECTURE.md §4
+import SectionHeading from "../ui/SectionHeading.astro";
+import ServiceCard from "../ui/ServiceCard.astro";
+import { site } from "../../data/site";
+
+const { services } = site;
+---
+
+<section
+  id="servicios"
+  class="relative py-16 sm:py-24"
+  aria-labelledby="servicios-title"
+>
+  <div class="mx-auto max-w-[1280px] px-5 sm:px-12">
+    <!-- Encabezado de la sección -->
+    <SectionHeading
+      id="servicios-title"
+      eyebrow={services.eyebrow}
+      title={services.title}
+      subtitle={services.subtitle}
+    />
+
+    <!-- Cuadrícula de 4 servicios -->
+    <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        services.items.map((service) => (
+          <ServiceCard
+            number={service.number}
+            title={service.title}
+            text={service.text}
+            ctaLabel={service.ctaLabel}
+            href={service.href}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

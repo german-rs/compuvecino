@@ -6,6 +6,17 @@ export const site = {
   phone: "+56 9 8296 0453",
   whatsapp: "https://wa.me/56982960453",
   skipLink: "Saltar al contenido",
+  nav: [
+    { label: "Servicios", href: "#servicios" },
+    { label: "Modalidades", href: "#modalidades" },
+    { label: "Proceso", href: "#proceso" },
+    { label: "Precios", href: "#precios" },
+    { label: "Lengua de Señas", href: "#lsch" },
+  ],
+  navCta: {
+    label: "Escribir por WhatsApp",
+    href: "https://wa.me/56982960453",
+  },
   seo: {
     title: "CompuVecino | Soporte técnico de computadores en Santiago",
     description:
@@ -41,5 +52,41 @@ export const site = {
       ],
       cards: ["Diagnóstico gratis", "Atención en LSCh", "Presupuesto previo"],
     },
+  },
+  services: {
+    eyebrow: "Servicios",
+    title: "Soluciones claras para cada problema de tu computador",
+    subtitle:
+      "Revisamos tu equipo, te explicamos qué falla en lenguaje simple y te damos un presupuesto antes de realizar cualquier trabajo.",
+    items: [
+      {
+        number: "01",
+        title: "Mantenimiento y optimización",
+        text: "Limpieza física de ventiladores, cambio de pasta térmica y eliminación de programas dañinos (malware) para que vuelva a funcionar rápido.",
+        ctaLabel: "Consultar por mantenimiento",
+        href: "https://wa.me/56982960453?text=Hola%20CompuVecino,%20necesito%20mantenimiento%20para%20mi%20computador",
+      },
+      {
+        number: "02",
+        title: "Reparación de componentes",
+        text: "Cambiamos pantallas rotas, teclados que no responden, baterías agotadas y conectores de carga en notebooks y computadores de escritorio.",
+        ctaLabel: "Consultar por reparación",
+        href: "https://wa.me/56982960453?text=Hola%20CompuVecino,%20necesito%20reparar%20una%20pieza%20de%20mi%20computador",
+      },
+      {
+        number: "03",
+        title: "Aumento de velocidad (SSD y RAM)",
+        text: "Multiplicamos la velocidad de tu equipo instalando un disco de estado sólido (SSD) y más memoria RAM, sin necesidad de gastar en un equipo nuevo.",
+        ctaLabel: "Consultar por actualización",
+        href: "https://wa.me/56982960453?text=Hola%20CompuVecino,%20quiero%20mejorar%20la%20velocidad%20de%20mi%20computador",
+      },
+      {
+        number: "04",
+        title: "Sistemas, programas y respaldo",
+        text: "Instalación limpia de Windows o macOS, respaldo seguro de tus fotos y documentos personales, y configuración de programas de uso diario.",
+        ctaLabel: "Consultar por programas o respaldo",
+        href: "https://wa.me/56982960453?text=Hola%20CompuVecino,%20necesito%20ayuda%20con%20programas%20o%20respaldo",
+      },
+    ],
   },
 } as const;

@@ -1,0 +1,67 @@
+---
+// Tarjeta de servicio individual. Ver docs/WEB_STYLE_GUIDE.md §8.3 y §5
+interface Props {
+  number: string;
+  title: string;
+  text: string;
+  ctaLabel: string;
+  href: string;
+  class?: string;
+}
+
+const { number, title, text, ctaLabel, href, class: className } = Astro.props;
+---
+
+<article
+  class:list={[
+    "group relative flex flex-col justify-between rounded-cv-lg border border-cv-border bg-white/[0.04] p-7 sm:p-8",
+    "transition-all duration-(--cv-dur-base) ease-(--cv-ease)",
+    "hover:border-cv-accent/55 hover:shadow-[0_30px_60px_-20px_var(--cv-glow)] motion-safe:hover:-translate-y-2",
+    className,
+  ]}
+>
+  <div>
+    <!-- Número grande Space Grotesk 56px en acento -->
+    <span
+      class="font-display text-[56px] font-bold leading-none text-cv-accent select-none"
+      aria-hidden="true"
+    >
+      {number}
+    </span>
+
+    <!-- Título H3 -->
+    <h3 class="mt-4 font-display text-xl sm:text-2xl font-bold leading-snug text-cv-text">
+      {title}
+    </h3>
+
+    <!-- Descripción del servicio -->
+    <p class="mt-3 text-[15px] leading-relaxed text-cv-muted">
+      {text}
+    </p>
+  </div>
+
+  <!-- Enlace con flecha a WhatsApp -->
+  <div class="mt-6 pt-2">
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-2 text-sm font-semibold text-cv-accent transition-colors hover:text-cv-text focus-visible:outline-2 focus-visible:outline-cv-accent rounded-cv-sm"
+    >
+      <span>{ctaLabel}</span>
+      <svg
+        class="h-4 w-4 transition-transform duration-(--cv-dur-fast) group-hover:translate-x-1"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M5 12h14"></path>
+        <path d="m12 5 7 7-7 7"></path>
+      </svg>
+    </a>
+  </div>
+</article>

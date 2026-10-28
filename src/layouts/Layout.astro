@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Navbar from "../components/ui/Navbar.astro";
 import { site } from "../data/site";
 
 interface Props {
@@ -45,6 +46,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     >
       {site.skipLink}
     </a>
+    <Navbar />
     <slot />
   </body>
 </html>
