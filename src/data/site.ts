@@ -261,4 +261,21 @@ export const site = {
       ],
     },
   },
+  finalCta: {
+    title: "¿Falla algo? Cuéntanos qué pasa.",
+    description:
+      "Diagnóstico claro, presupuesto antes de empezar y atención personalizada a domicilio, en taller o remoto en Santiago. También en Lengua de Señas Chilena.",
+    ctaLabel: "Pedir diagnóstico gratis",
+    href: "https://wa.me/56982960453?text=Hola%20CompuVecino,%20quisiera%20pedir%20un%20diagn%C3%B3stico%20para%20mi%20computador",
+    directContact: {
+      label: "WhatsApp directo:",
+      number: "+56 9 8296 0453",
+    },
+  },
+  footer: {
+    tagline: "Soluciones tecnológicas más cerca de ti.",
+    location: "Santiago, Región Metropolitana — Chile",
+    accessibilityNote:
+      "Sitio diseñado con criterios de accesibilidad y atención en LSCh.",
+  },
 } as const;
