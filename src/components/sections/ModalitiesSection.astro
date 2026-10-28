@@ -1,0 +1,44 @@
+---
+// Sección de Modalidades de atención (#modalidades). Ver docs/WEB_STYLE_GUIDE.md §4 y §10
+import SectionHeading from "../ui/SectionHeading.astro";
+import ModalityCard from "../ui/ModalityCard.astro";
+import { site } from "../../data/site";
+
+const { modalities } = site;
+---
+
+<section
+  id="modalidades"
+  class="relative border-y border-cv-border bg-cv-surface py-16 sm:py-24"
+  aria-labelledby="modalidades-title"
+>
+  <div class="mx-auto max-w-[1280px] px-5 sm:px-12">
+    <!-- Encabezado de la sección -->
+    <SectionHeading
+      id="modalidades-title"
+      eyebrow={modalities.eyebrow}
+      title={modalities.title}
+      subtitle={modalities.subtitle}
+    />
+
+    <!-- Cuadrícula de 3 modalidades -->
+    <div class="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
+      {
+        modalities.items.map((item, index) => {
+          const type = index === 0 ? "domicilio" : index === 1 ? "taller" : "remoto";
+          return (
+            <ModalityCard
+              tag={item.tag}
+              title={item.title}
+              description={item.description}
+              features={item.features}
+              ctaLabel={item.ctaLabel}
+              href={item.href}
+              type={type}
+            />
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

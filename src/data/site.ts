@@ -89,4 +89,51 @@ export const site = {
       },
     ],
   },
+  modalities: {
+    eyebrow: "Modalidades de atención",
+    title: "Elige la forma más cómoda de atender tu equipo",
+    subtitle:
+      "Nos adaptamos a tu tiempo y ubicación en la Región Metropolitana. Te explicamos todo el proceso con claridad.",
+    items: [
+      {
+        tag: "En tu hogar u oficina",
+        title: "A domicilio",
+        description:
+          "Vamos a tu casa o lugar de trabajo en Santiago. Diagnosticamos y resolvemos el problema en el lugar, con paciencia y sin apuros.",
+        features: [
+          "Sin necesidad de desconectar ni trasladar tu equipo",
+          "Atención personalizada con explicaciones paso a paso",
+          "Disponible también en Lengua de Señas Chilena",
+        ],
+        ctaLabel: "Pedir visita a domicilio",
+        href: "https://wa.me/56982960453?text=Hola%20CompuVecino,%20quisiera%20coordinar%20una%20visita%20a%20domicilio",
+      },
+      {
+        tag: "Reparación técnica",
+        title: "En taller",
+        description:
+          "Para fallas complejas que requieren instrumental especializado, pruebas de temperatura prolongadas o cambio de piezas delicadas.",
+        features: [
+          "Diagnóstico exhaustivo y pruebas de estabilidad",
+          "Presupuesto cerrado antes de iniciar el trabajo",
+          "Recepción y entrega con respaldo de seguridad",
+        ],
+        ctaLabel: "Coordinar entrega en taller",
+        href: "https://wa.me/56982960453?text=Hola%20CompuVecino,%20quisiera%20llevar%20mi%20computador%20al%20taller",
+      },
+      {
+        tag: "Respuesta inmediata",
+        title: "Soporte remoto",
+        description:
+          "Nos conectamos a tu pantalla por internet mediante una conexión segura para solucionar emergencias de software sin esperar visitas.",
+        features: [
+          "Atención rápida sin costos de traslado",
+          "Solución para lentitud, virus y configuración de programas",
+          "Ves en todo momento lo que hacemos en tu pantalla",
+        ],
+        ctaLabel: "Pedir soporte remoto",
+        href: "https://wa.me/56982960453?text=Hola%20CompuVecino,%20necesito%20soporte%20remoto%20para%20mi%20computador",
+      },
+    ],
+  },
 } as const;
