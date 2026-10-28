@@ -1,0 +1,37 @@
+---
+// Sección de Proceso (#proceso). Ver docs/WEB_STYLE_GUIDE.md §8.5 y §10
+import SectionHeading from "../ui/SectionHeading.astro";
+import StepCard from "../ui/StepCard.astro";
+import { site } from "../../data/site";
+
+const { process } = site;
+---
+
+<section
+  id="proceso"
+  class="relative py-16 sm:py-24"
+  aria-labelledby="proceso-title"
+>
+  <div class="mx-auto max-w-[1280px] px-5 sm:px-12">
+    <!-- Encabezado de la sección -->
+    <SectionHeading
+      id="proceso-title"
+      eyebrow={process.eyebrow}
+      title={process.title}
+      subtitle={process.subtitle}
+    />
+
+    <!-- Cuadrícula de 4 pasos -->
+    <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        process.steps.map((step) => (
+          <StepCard
+            number={step.number}
+            title={step.title}
+            text={step.text}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

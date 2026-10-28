@@ -136,4 +136,32 @@ export const site = {
       },
     ],
   },
+  process: {
+    eyebrow: "Paso a paso",
+    title: "Cómo trabajamos",
+    subtitle:
+      "Un camino claro, transparente y sin sorpresas desde el primer mensaje hasta que tu computador queda resuelto.",
+    steps: [
+      {
+        number: "1",
+        title: "Nos cuentas qué pasa",
+        text: "Nos escribes por WhatsApp describiendo la falla. Puedes enviar texto, audio o video en Lengua de Señas Chilena. Coordinamos la modalidad más cómoda.",
+      },
+      {
+        number: "2",
+        title: "Diagnóstico claro",
+        text: "Revisamos tu computador para encontrar el origen del problema. Te explicamos exactamente qué falla en palabras simples, sin enredos técnicos.",
+      },
+      {
+        number: "3",
+        title: "Presupuesto antes de reparar",
+        text: "Te decimos cuánto cuesta y cuánto tiempo tomará antes de hacer cualquier arreglo. Si no apruebas el presupuesto, no se realiza ningún cobro sorpresa.",
+      },
+      {
+        number: "4",
+        title: "Reparación y entrega",
+        text: "Realizamos el trabajo técnico, comprobamos el correcto funcionamiento frente a ti y te damos consejos útiles para el cuidado continuo de tu equipo.",
+      },
+    ],
+  },
 } as const;
