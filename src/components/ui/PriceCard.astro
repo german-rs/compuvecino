@@ -1,0 +1,112 @@
+---
+// Tarjeta de precio individual. Ver docs/WEB_STYLE_GUIDE.md §8.4 y §5
+import Button from "./Button.astro";
+
+interface Props {
+  title: string;
+  price: string;
+  priceNote?: string;
+  description?: string;
+  includes: readonly string[] | string[];
+  ctaLabel: string;
+  href: string;
+  featured?: boolean;
+  badge?: string;
+  class?: string;
+}
+
+const {
+  title,
+  price,
+  priceNote,
+  description,
+  includes,
+  ctaLabel,
+  href,
+  featured = false,
+  badge,
+  class: className,
+} = Astro.props;
+---
+
+<article
+  class:list={[
+    "group relative flex flex-col justify-between rounded-cv-lg border p-7 sm:p-8",
+    "transition-all duration-(--cv-dur-base) ease-(--cv-ease)",
+    "hover:border-cv-accent/55 hover:shadow-[0_30px_60px_-20px_var(--cv-glow)] motion-safe:hover:-translate-y-2",
+    featured
+      ? "border-cv-accent/40 bg-gradient-to-b from-cv-accent/10 to-cv-surface-2 shadow-[0_0_30px_-10px_var(--cv-glow)]"
+      : "border-cv-border bg-cv-surface-2",
+    className,
+  ]}
+>
+  <div>
+    <!-- Encabezado y Badge superior opcional -->
+    <div class="flex items-center justify-between gap-2 min-h-7">
+      <h3 class="font-display text-xl sm:text-2xl font-bold leading-snug text-cv-text">
+        {title}
+      </h3>
+      {
+        badge && (
+          <span class="inline-flex rounded-cv-pill border border-cv-accent/40 bg-cv-accent/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-cv-accent">
+            {badge}
+          </span>
+        )
+      }
+    </div>
+
+    <!-- Descripción breve -->
+    {
+      description && (
+        <p class="mt-2 text-sm text-cv-muted">
+          {description}
+        </p>
+      )
+    }
+
+    <!-- Bloque de Precio (Space Grotesk 44px en acento) -->
+    <div class="mt-6 border-b border-cv-border pb-6">
+      <div class="flex items-baseline gap-2">
+        <span class="font-display text-[44px] font-bold leading-none tracking-tight text-cv-accent">
+          {price}
+        </span>
+      </div>
+      <p class="mt-1 text-xs text-cv-muted">
+        {priceNote || "Precio de referencia según diagnóstico"}
+      </p>
+    </div>
+
+    <!-- Lista de lo que incluye -->
+    <ul class="mt-6 space-y-3 text-sm text-cv-text/90">
+      {
+        includes.map((item) => (
+          <li class="flex items-start gap-2.5">
+            <svg
+              class="mt-1 h-4 w-4 shrink-0 text-cv-accent"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.5"
+              aria-hidden="true"
+            >
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            <span>{item}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <!-- Botón de Acción a WhatsApp -->
+  <div class="mt-8 pt-2">
+    <Button
+      variant={featured ? "primary" : "outline"}
+      size="md"
+      href={href}
+      class="w-full justify-center"
+    >
+      {ctaLabel}
+    </Button>
+  </div>
+</article>

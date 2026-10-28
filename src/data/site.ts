@@ -164,4 +164,70 @@ export const site = {
       },
     ],
   },
+  pricing: {
+    eyebrow: "Valores transparentes",
+    title: "Precios de referencia",
+    subtitle:
+      "Valores orientativos para los trabajos más habituales. Siempre sabrás el costo total antes de realizar cualquier reparación.",
+    disclaimer: "El presupuesto final se confirma después del diagnóstico.",
+    plans: [
+      {
+        title: "Mantención completa",
+        price: "Desde $25.000",
+        description:
+          "Ideal para computadores lentos, con exceso de polvo o que levantan temperatura.",
+        includes: [
+          "Limpieza interna de polvo y ventiladores",
+          "Cambio de pasta térmica de alto rendimiento",
+          "Eliminación de programas dañinos (malware)",
+          "Informe de salud del disco y memoria",
+        ],
+        featured: false,
+        ctaLabel: "Solicitar cotización",
+        href: "https://wa.me/56982960453?text=Hola%20CompuVecino,%20quisiera%20cotizar%20la%20mantenci%C3%B3n%20completa",
+      },
+      {
+        title: "Sistema y respaldo",
+        price: "Desde $35.000",
+        badge: "Más solicitado",
+        description:
+          "Para equipos que no inician, bloqueados o que necesitan empezar desde cero.",
+        includes: [
+          "Respaldo seguro de documentos y fotos",
+          "Instalación limpia de Windows o macOS",
+          "Configuración de programas indispensables",
+          "Actualizaciones de seguridad completas",
+        ],
+        featured: true,
+        ctaLabel: "Solicitar cotización",
+        href: "https://wa.me/56982960453?text=Hola%20CompuVecino,%20quisiera%20cotizar%20instalaci%C3%B3n%20de%20sistema%20y%20respaldo",
+      },
+      {
+        title: "Reparación o actualización",
+        price: "Desde $20.000",
+        priceNote: "+ valor de repuestos",
+        description:
+          "Instalación de piezas nuevas o cambio de componentes dañados.",
+        includes: [
+          "Instalación de disco SSD o memoria RAM",
+          "Cambio de pantallas, teclados y baterías",
+          "Reparación de bisagras y conectores",
+          "Pruebas de estabilidad y temperatura",
+        ],
+        featured: false,
+        ctaLabel: "Solicitar cotización",
+        href: "https://wa.me/56982960453?text=Hola%20CompuVecino,%20quisiera%20cotizar%20reparaci%C3%B3n%20o%20actualizaci%C3%B3n",
+      },
+    ],
+    sme: {
+      tag: "Pequeños negocios",
+      title: "¿Tienes una pyme o local con varios computadores?",
+      description:
+        "Planes mensuales de mantención preventiva y soporte prioritario para que tu actividad no se detenga. Atención a domicilio, remota y en Lengua de Señas Chilena.",
+      statusNote:
+        "[Planes mensuales a la medida — valor por confirmar tras evaluación]",
+      ctaLabel: "Cotizar para mi pyme",
+      href: "https://wa.me/56982960453?text=Hola%20CompuVecino,%20quisiera%20cotizar%20soporte%20para%20mi%20pyme",
+    },
+  },
 } as const;
